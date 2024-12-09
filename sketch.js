@@ -1,10 +1,10 @@
 // our image
-let ufo;
+let hawk;
 
 // preload runs before everything else
 function preload()
 {
-	ufo = loadImage('/assets/ufo.png');
+	hawk = loadImage('/assets/hawk.png');
 }
 
 // setup runs once at the start
@@ -18,5 +18,5 @@ function draw()
 {
 	background(200, 200, 255);
 
-	image(ufo, 300, 200);
+	image(hawk, 200, 200);
 }
