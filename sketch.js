@@ -55,6 +55,8 @@ function setup() {
 
 	playerTotal = calculateTotal([randomCard, randomCardTwo]);
     dealerTotal = calculateTotal([randomDealerCard, randomDealerCardTwo]);
+
+	checkWinner();
 }
 
 // draw runs every frame
@@ -147,4 +149,25 @@ function calculateTotal(cards) {
     }
 
     return total;
+}
+
+function checkWinner() {
+    if (playerTotal > 21) {
+        console.log("Bust! House wins!");
+        return;
+    }
+    
+    if (dealerTotal > 21) {
+        console.log("Dealer bust! You win!");
+        return;
+    }
+    
+    // If nobody busts, higher number wins
+    if (playerTotal > dealerTotal) {
+        console.log("You win with " + playerTotal + " against dealer's " + dealerTotal + "!");
+    } else if (dealerTotal > playerTotal) {
+        console.log("Dealer wins with " + dealerTotal + " against your " + playerTotal + "!");
+    } else {
+        console.log("It's a tie! You both have " + playerTotal);
+    }
 }
