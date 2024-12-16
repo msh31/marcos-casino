@@ -25,8 +25,8 @@ let dealerTotal = 0;
 
 // preload runs before everything else
 function preload() {
-    backgroundImage = loadImage("../img/home_bg.webp");
-    dealer_1 = loadImage("../img/dealer_1.png");
+    backgroundImage = loadImage("../src/img/blackjack_bg.png");
+    dealer_1 = loadImage("../src/img//dealer_1.png");
 
 	const suits = ['clubs', 'diamonds', 'hearts', 'spades']; //category of cards
 	const values = ['A', '02', '03', '04', '05', '06', '07', '08', '09', '10', 'J', 'Q', 'K']; // card values
@@ -34,7 +34,7 @@ function preload() {
 	for (let suit of suits) {
 		cardImages[suit] = {}; // nested object for each suit
 		for (let value of values) {
-			let filename = `/assets/cards/card_${suit}_${value}.png`;
+			let filename = `../src/img/cards/card_${suit}_${value}.png`;
 			cardImages[suit][value] = loadImage(filename);
 		}
 	}
@@ -63,7 +63,7 @@ function setup() {
 function draw() {
     background(46, 84, 41);
 
-    // Card dealing animation for player
+    // card dealing animation for player
     let distanceX = targetX - positionX;
     let distanceY = targetY - positionY;
     positionX += distanceX * speed;
@@ -71,7 +71,7 @@ function draw() {
     image(randomCard.image, positionX, positionY, 96, 96);
     image(randomCardTwo.image, positionX + 20, positionY + 20, 96, 96);
 
-    // Card dealing animation for dealer
+    // card dealing animation for dealer
     let distanceXd = dTargetX - positionXd;
     let distanceYd = dTargetY - positionYd;
     positionXd += distanceXd * speed;
@@ -79,7 +79,7 @@ function draw() {
     image(randomDealerCard.image, positionXd, positionYd, 96, 96);
     image(randomDealerCardTwo.image, positionXd + 20, positionYd + 20, 96, 96);
 
-    // Drawing the UI
+    // drawing the UI
     fill(255);
     text('Balance: $' + balance, 50, 50);
     text('Player: ' + playerTotal, 350, 550);
