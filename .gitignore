@@ -1,2 +1,10 @@
-
-/node_modules
+node_modules/
+output.css
+dist/
+public/
+*.log
+*.env
+.DS_Store             # macOS metadata files
+.idea/                # JetBrains IDE config folder
+.vscode/              # VSCode settings
+tailwind.config.js    # Optional - only if secrets are there
