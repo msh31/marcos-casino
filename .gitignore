@@ -8,3 +8,4 @@ public/
 .idea/                # JetBrains IDE config folder
 .vscode/              # VSCode settings
 tailwind.config.js    # Optional - only if secrets are there
+/src/img/dev

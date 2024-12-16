@@ -25,8 +25,8 @@ let dealerTotal = 0;
 
 // preload runs before everything else
 function preload() {
-	backgroundImage = loadImage("/assets/home_bg.webp");
-	dealer_1 = loadImage("/assets/dealer_1.png");
+    backgroundImage = loadImage("../img/home_bg.webp");
+    dealer_1 = loadImage("../img/dealer_1.png");
 
 	const suits = ['clubs', 'diamonds', 'hearts', 'spades']; //category of cards
 	const values = ['A', '02', '03', '04', '05', '06', '07', '08', '09', '10', 'J', 'Q', 'K']; // card values
@@ -40,69 +40,62 @@ function preload() {
 	}
 }
 
-// setup runs once at the start
+// Setup runs once at the start
 function setup() {
-	var canvas = createCanvas(1280, 720);
-	canvas.parent("game-window");
+    var canvas = createCanvas(1280, 720);
+    canvas.parent("game-window");
 
-	textSize(32);
+    textSize(32);
 
-	// pick random cards to deal to player
-	randomCard = getRandomCard();
-	randomCardTwo = getRandomCard();
-	randomDealerCard = getRandomCard();
-	randomDealerCardTwo = getRandomCard();
+    // pick random cards to deal to player
+    randomCard = getRandomCard();
+    randomCardTwo = getRandomCard();
+    randomDealerCard = getRandomCard();
+    randomDealerCardTwo = getRandomCard();
 
-	playerTotal = calculateTotal([randomCard, randomCardTwo]);
+    playerTotal = calculateTotal([randomCard, randomCardTwo]);
     dealerTotal = calculateTotal([randomDealerCard, randomDealerCardTwo]);
 
-	checkWinner();
+    checkWinner();
 }
 
 // draw runs every frame
 function draw() {
-	background(46, 84, 41);
+    background(46, 84, 41);
 
-//CARD DEALING ANIMATION
-	// calculate difference between current and target position
-	let distanceX = targetX - positionX;
-	let distanceY = targetY - positionY;
+    // Card dealing animation for player
+    let distanceX = targetX - positionX;
+    let distanceY = targetY - positionY;
+    positionX += distanceX * speed;
+    positionY += distanceY * speed;
+    image(randomCard.image, positionX, positionY, 96, 96);
+    image(randomCardTwo.image, positionX + 20, positionY + 20, 96, 96);
 
-	// slowly move towards the target position using the 0.05 speed
-	positionX += distanceX * speed;
-	positionY += distanceY * speed;
+    // Card dealing animation for dealer
+    let distanceXd = dTargetX - positionXd;
+    let distanceYd = dTargetY - positionYd;
+    positionXd += distanceXd * speed;
+    positionYd += distanceYd * speed;
+    image(randomDealerCard.image, positionXd, positionYd, 96, 96);
+    image(randomDealerCardTwo.image, positionXd + 20, positionYd + 20, 96, 96);
 
-	// draw random cards at current position
-	image(randomCard.image, positionX, positionY, 96, 96);
-	image(randomCardTwo.image, positionX + 20, positionY + 20, 96, 96); // Offset second card slightly
+    // Drawing the UI
+    fill(255);
+    text('Balance: $' + balance, 50, 50);
+    text('Player: ' + playerTotal, 350, 550);
+    text('Dealer: ' + dealerTotal, 350, 250);
+    image(dealer_1, 1025, 25, 224, 224);
 
-	// calculate difference between current and target position
-	let distanceXd = dTargetX - positionXd;
-	let distanceYd = dTargetY - positionYd;
-
-	// slowly move towards the target position using the 0.05 speed
-	positionXd += distanceXd * speed;
-	positionYd += distanceYd * speed;
-
-	// draw random cards at current position
-	image(randomDealerCard.image, positionXd, positionYd, 96, 96);
-	image(randomDealerCardTwo.image, positionXd + 20, positionYd + 20, 96, 96); // Offset second card slightly
-
-//DRAWING THE UI
-	fill(255)
-	text('Balance: $' + balance, 50, 50);
-	text('player: ' + playerTotal, 350, 550);
-	text('dealer: ' + dealerTotal, 350, 250);
-	image(dealer_1, 1025, 25, 224, 224)
-	fill(51);
-	noStroke(); //border
-	rect(0, 600, 1280, 120);
+    fill(51);
+    noStroke();
+    rect(0, 600, 1280, 120);
 }
 
 // FUNCTIONS
+
 function addMoney(amount) {
-	balance += amount;
-	return balance;
+    balance += amount;
+    return balance;
 }
 
 function getRandomCard() {
@@ -112,7 +105,7 @@ function getRandomCard() {
     let cardValues = Object.keys(cardImages[randomSuit]);
     let randomValue = cardValues[Math.floor(Math.random() * cardValues.length)];
 
-    // return cardimage with random suit and value
+	// return cardimage with random suit and value
     return {
         suit: randomSuit,
         value: randomValue,
@@ -135,16 +128,15 @@ function calculateTotal(cards) {
     let total = 0;
     let aces = 0;
 
-    // calculate total
     for (let card of cards) {
         let value = getCardValue(card);
         if (value === 11) aces += 1;
         total += value;
     }
 
-    // If we're over 21 and have aces, turn them into 1s instead of 11s
+	// if we're over 21 and have aces, turn them into 1s instead of 11s
     while (total > 21 && aces > 0) {
-        total -= 10; // Convert an ace from 11 to 1
+        total -= 10; // convert an ace from 11 to 1
         aces -= 1;
     }
 
@@ -156,13 +148,13 @@ function checkWinner() {
         console.log("Bust! House wins!");
         return;
     }
-    
+
     if (dealerTotal > 21) {
         console.log("Dealer bust! You win!");
         return;
     }
-    
-    // If nobody busts, higher number wins
+
+	// if nobody busts, higher number wins
     if (playerTotal > dealerTotal) {
         console.log("You win with " + playerTotal + " against dealer's " + dealerTotal + "!");
     } else if (dealerTotal > playerTotal) {
