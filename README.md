@@ -3,7 +3,7 @@
 # Marco's Casino
 Simple webgame made using p5.js
 
-[Features](#-features) •
+[Games](#-included-games) •
 [Technical Details](#-technical-details) •
 [Contributing](#-contributing) •
 [License](#-license) •
