@@ -1,12 +1,34 @@
+# Dependencies
 node_modules/
-output.css
+
+# Build outputs
+build/
 dist/
-public/
+*.min.js
+output.css
+
+# Environment files
+.env
+.env.*
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Optional development files
 *.log
-*.env
-.DS_Store             # macOS metadata files
-.idea/                # JetBrains IDE config folder
-.vscode/              # VSCode settings
-tailwind.config.js    # Optional - only if secrets are there
-/src/img/dev
-package-lock.json
+.cache/
+coverage/
+
+# Project specific
+# Add any large binary assets that shouldn't be in Git
+src/img/cards/*.png
+src/libs/p5/p5.min.js

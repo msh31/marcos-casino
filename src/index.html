@@ -6,23 +6,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/x-icon" href="img/favicon.ico">
   <title>Marco's Casino</title>
-  <link rel="stylesheet" href="style/style.css">
+  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="../build/output.css">
-  <script src="libs/p5/p5.min.js"></script>
-  <!-- <script src="p5/p5.sound.js"></script> -->
-  <script src="core/sketch.js"></script>
 </head>
 
-<body">
-  <div id="game-window">
-
+<body class="min-h-screen">
+  <div class="flex justify-center items-start px-16 mt-12">
+    <div class="flex-1">
+      <h1 class="text-7xl mb-6 game-name">Marco's Casino</h1>
+    </div>
   </div>
 
-  <div class="fixed bottom-4 left-1/2 transform -translate-x-1/2">
-    <button class="btn btn-primary btn-lg text-white font-bold text-xl" id="hit-btn">HIT</button>
-    <button class="btn btn-primary btn-lg text-white font-bold text-xl" id="stand-btn">STAND</button>
-  </div>
+  <div class="flex flex-col items-center">
+    <h2 class="text-2xl mt-28 desc-text">Select a difficulty</h2>
 
+    <div class="flex mt-7 gap-4 justify-center">
+      <div class="difficulty-card">
+        <img src="img/CardArt2.png" alt="Easy mode" class="w-48 h-48 mb-4">
+        <span class="text-3xl">EASY</span>
+      </div>
+
+      <div class="difficulty-card">
+        <img src="img/CardArt1.png" alt="Normal mode" class="w-48 h-48 mb-4">
+        <span class="text-3xl">NORMAL</span>
+      </div>
+
+      <div class="difficulty-card">
+        <img src="img/CardArt3.png" alt="Hard mode" class="w-48 h-48 mb-4">
+        <span class="text-3xl">HARD</span>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>

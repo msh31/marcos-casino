@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background: linear-gradient(to bottom, #1A1A1A, #2D1F1F);
+}
+
+/* PLAY FILE */
+#main-game-container {
+  @apply relative mx-auto flex flex-col items-center;
+  width: 1280px;
+  height: 720px;
+}
+
+#game-header {
+  font-family: "Playwrite AU NSW", cursive;
+  @apply text-center text-yellow-400 mb-4;
+}
+
+#game-window {
+  @apply w-full h-full;
+}
+
+/* Text */
+.game-name {
+  font-family: "Playwrite AU NSW", cursive;
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+  @apply text-center text-yellow-400 mb-4;
+}
+
+.desc-text {
+  font-family: 'Consolas', monospace;
+  @apply text-center text-white mb-4;
+}
+
+/* Cards */
+.difficulty-card {
+  @apply flex flex-col items-center justify-center p-8 rounded-2xl border-2 border-yellow-400 
+         bg-black/50 text-white hover:scale-105 transition-transform cursor-pointer;
+  min-width: 280px;
+  min-height: 320px;
+}
+
+.difficulty-card:hover {
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+}
