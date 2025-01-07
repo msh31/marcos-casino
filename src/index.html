@@ -6,37 +6,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/x-icon" href="img/favicon.ico">
   <title>Marco's Casino</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="../build/output.css">
+  <link rel="stylesheet" href="style/style.css">
+  <link rel="stylesheet" href="style/output.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playwrite+AU+NSW&display=swap" rel="stylesheet">
 </head>
 
 <body class="min-h-screen">
   <div class="flex justify-center items-start px-16 mt-12">
-    <div class="flex-1">
-      <h1 class="text-7xl mb-6 game-name">Marco's Casino</h1>
+    <div class="flex-1 game-name">
+      <h1 class="text-yellow-400 text-7xl mb-12 font-casino text-center">Marco's Casino</h1>
     </div>
   </div>
 
-  <div class="flex flex-col items-center">
-    <h2 class="text-2xl mt-28 desc-text">Select a difficulty</h2>
-
-    <div class="flex mt-7 gap-4 justify-center">
-      <div class="difficulty-card">
-        <img src="img/CardArt2.png" alt="Easy mode" class="w-48 h-48 mb-4">
-        <span class="text-3xl">EASY</span>
+  <div class="game-container">
+    <div class="game-window">
+      <div class="game-area">
+        <div class="dealer-cards"></div>
+        <div class="player-cards"></div>
       </div>
-
-      <div class="difficulty-card">
-        <img src="img/CardArt1.png" alt="Normal mode" class="w-48 h-48 mb-4">
-        <span class="text-3xl">NORMAL</span>
-      </div>
-
-      <div class="difficulty-card">
-        <img src="img/CardArt3.png" alt="Hard mode" class="w-48 h-48 mb-4">
-        <span class="text-3xl">HARD</span>
+      <div class="game-controls">
+        <button class="game-btn bg-[#d4af37] text-black p-20 border-none border-r-4 font-bold cursor-pointer" id="hit-btn">Hit</button>
+        <button class="game-btn bg-[#d4af37] text-black p-20 border-none border-r-4 font-bold cursor-pointer" id="stand-btn">Stand</button>
       </div>
     </div>
   </div>
+
+  <script src="script.js"></script>
 </body>
 
 </html>
