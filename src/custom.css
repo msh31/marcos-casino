@@ -1,0 +1,57 @@
+.text-glow {
+    text-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+}
+
+/* Custom slider styling */
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background: #2d5a3c;
+    border-radius: 8px;
+    height: 8px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #d4af37;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+    background: #c4a030;
+    transform: scale(1.1);
+}
+
+/* Button styling */
+.btn {
+    transition: all 0.2s ease-in-out;
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+#result-message {
+    transition: opacity 0.3s ease-in-out;
+}
+
+#result-message.hidden {
+    opacity: 0;
+}
+
+/* Smoother transitions for game controls */
+#betting-controls,
+#game-controls {
+    transition: opacity 0.3s ease-in-out;
+}
+
+#betting-controls.hidden,
+#game-controls.hidden {
+    opacity: 0;
+    pointer-events: none;
+}

@@ -1,39 +1,92 @@
 <!DOCTYPE html>
-<html lang="en-US">
-
+<html lang="en-US" data-theme="casino">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/x-icon" href="img/favicon.ico">
-  <title>Marco's Casino</title>
-  <link rel="stylesheet" href="style/style.css">
-  <link rel="stylesheet" href="style/output.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playwrite+AU+NSW&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <title>Marco's Casino</title>
+    <link rel="stylesheet" href="output.css">
+    <link rel="stylesheet" href="custom.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+AU+NSW&display=swap" rel="stylesheet">
+    <script src="script.js" defer></script>
 </head>
 
-<body class="min-h-screen">
-  <div class="flex justify-center items-start px-16 mt-12">
-    <div class="flex-1 game-name">
-      <h1 class="text-yellow-400 text-7xl mb-12 font-casino text-center">Marco's Casino</h1>
+<body class="min-h-screen bg-gradient-to-b from-[#1A1A1A] to-[#2D1F1F]">
+<!-- Header -->
+<div class="navbar px-4 py-6">
+    <h1 class="text-[#d4af37] text-5xl md:text-7xl font-casino text-glow">Marco's Casino</h1>
+    <div class="ml-auto">
+        <div class="stats bg-black bg-opacity-50 text-[#d4af37]">
+            <div class="stat">
+                <div class="stat-title">Balance</div>
+                <div class="stat-value">€<span id="balance">500</span></div>
+            </div>
+        </div>
     </div>
-  </div>
+</div>
 
-  <div class="game-container">
-    <div class="game-window">
-      <div class="game-area">
-        <div class="dealer-cards"></div>
-        <div class="player-cards"></div>
-      </div>
-      <div class="game-controls">
-        <button class="game-btn bg-[#d4af37] text-black p-20 border-none border-r-4 font-bold cursor-pointer" id="hit-btn">Hit</button>
-        <button class="game-btn bg-[#d4af37] text-black p-20 border-none border-r-4 font-bold cursor-pointer" id="stand-btn">Stand</button>
-      </div>
+<!-- Game Container -->
+<div class="container mx-auto p-4 max-w-4xl">
+    <div class="bg-[#1a472a] rounded-xl p-6 min-h-[600px]">
+        <!-- Dealer Section -->
+        <div class="space-y-4 mb-8">
+            <div class="flex justify-between items-center">
+                <h2 class="text-[#d4af37] text-xl">Dealer's Hand</h2>
+                <span class="text-[#d4af37] text-xl">Score: <span id="dealer-score">0</span></span>
+            </div>
+            <div class="dealer-cards bg-[#2d5a3c] rounded-lg p-4 min-h-[174px] flex gap-4"></div>
+        </div>
+
+        <!-- Player Section -->
+        <div class="space-y-4 mb-8">
+            <div class="flex justify-between items-center">
+                <h2 class="text-[#d4af37] text-xl">Your Hand</h2>
+                <span class="text-[#d4af37] text-xl">Score: <span id="player-score">0</span></span>
+            </div>
+            <div class="player-cards bg-[#2d5a3c] rounded-lg p-4 min-h-[174px] flex gap-4"></div>
+        </div>
+
+        <!-- Game Controls -->
+        <div class="space-y-6">
+            <!-- Betting Controls -->
+            <div id="betting-controls" class="flex flex-col items-center gap-4">
+                <div class="w-full max-w-md space-y-2">
+                    <div class="flex justify-between text-[#d4af37]">
+                        <span>€10</span>
+                        <span id="current-bet">€500</span>
+                        <span>€<span id="max-bet">1000</span></span>
+                    </div>
+                    <input
+                            type="range"
+                            min="10"
+                            max="1000"
+                            value="500"
+                            step="25"
+                            class="w-full h-2 bg-[#d4af37] rounded-lg appearance-none cursor-pointer"
+                            id="bet-slider"
+                    >
+                </div>
+                <button id="place-bet-btn"
+                        class="btn bg-[#d4af37] hover:bg-[#c4a030] text-black border-none min-w-[120px]">
+                    Place Bet
+                </button>
+            </div>
+
+            <!-- Game Action Controls -->
+            <div id="game-controls" class="flex justify-center gap-4 hidden">
+                <button class="btn bg-[#d4af37] hover:bg-[#c4a030] text-black border-none" id="hit-btn">Hit</button>
+                <button class="btn bg-[#d4af37] hover:bg-[#c4a030] text-black border-none" id="stand-btn">Stand</button>
+                <button class="btn bg-[#d4af37] hover:bg-[#c4a030] text-black border-none" id="double-btn">Double
+                </button>
+            </div>
+
+            <div id="result-message" class="alert alert-success hidden text-center">
+                <span class="text-2xl font-bold"></span>
+            </div>
+        </div>
     </div>
-  </div>
-
-  <script src="script.js"></script>
+</div>
 </body>
-
 </html>
