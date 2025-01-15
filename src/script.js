@@ -4,7 +4,7 @@ class BlackjackGame {
         this.playerHand = [];
         this.dealerHand = [];
         this.currentBet = 0;
-        this.balance = 1000;
+        this.balance = 500;
         this.gameState = 'betting'; // betting, playing, dealer-turn, game-over
 
         this.suits = ['hearts', 'diamonds', 'clubs', 'spades'];
@@ -20,7 +20,22 @@ class BlackjackGame {
     }
 
     initializeGame() {
-        // TODO: Reset all game variables and create/shuffle deck
+        this.deck = [];
+        this.playerHand = [];
+        this.dealerHand = [];
+
+        // create deck
+        for (let suit of this.suits) {
+            for (let value of this.values) {
+                this.deck.push({ suit, value });
+            }
+        }
+
+        // shuffle deck
+        for (let i = this.deck.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [this.deck[i], this.deck[j]] = [this.deck[j], this.deck[i]];
+        }
     }
 
     placeBet(amount) {
@@ -51,10 +66,6 @@ class BlackjackGame {
         // TODO: Check for natural blackjack
     }
 
-    calculateScore(hand) {
-        // TODO: Calculate hand score, handling aces correctly
-    }
-
     determineWinner() {
         // TODO: Compare hands and determine winner
     }
@@ -66,6 +77,11 @@ class BlackjackGame {
     endGame(result) {
         // TODO: Handle end game state and show result message
     }
+//     HELPER FUNCTIONS
+    calculateScore(hand) {
+        
+    }
+
 }
 
 class UI {
@@ -102,31 +118,6 @@ class UI {
         });
 
         this.currentBet.textContent = `€${this.betSlider.value}`;
-    }
-
-    updateScores(playerScore, dealerScore) {
-        this.playerScore.textContent = playerScore;
-        this.dealerScore.textContent = dealerScore;
-    }
-
-    updateBalance(balance) {
-        this.balance.textContent = balance;
-    }
-
-    showGameControls() {
-        this.bettingControls.classList.add('hidden');
-        this.gameControls.classList.remove('hidden');
-    }
-
-    showBettingControls() {
-        this.bettingControls.classList.remove('hidden');
-        this.gameControls.classList.add('hidden');
-    }
-
-    showResult(message, type = 'success') {
-        this.resultMessage.classList.remove('hidden');
-        this.resultMessage.textContent = message;
-        this.resultMessage.className = `alert alert-${type}`;
     }
 
     convertValueToFileName(value) {
@@ -189,8 +180,8 @@ class UI {
                 width: 120px;
                 height: 174px;
                 display: inline-block;
-                margin: 5px;
-            `;
+                margin: 5px;`;
+                
                 const cardImage = document.createElement('img');
                 cardImage.src = 'img/cards/card_back.png';
                 cardImage.alt = 'Card back';
@@ -209,11 +200,6 @@ class UI {
 document.addEventListener('DOMContentLoaded', () => {
     const game = new BlackjackGame();
 
-    // Test card rendering
-    game.ui.drawCards([
-        {suit: 'hearts', value: 'A'},
-        {suit: 'spades', value: 'K'}
-    ], [
-        {suit: 'diamonds', value: 'Q'}
-    ], true);
+    //game.initializeGame();
+    //game.dealInitialCards();
 });
