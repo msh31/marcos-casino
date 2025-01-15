@@ -55,7 +55,16 @@ class BlackjackGame {
     }
 
     dealerTurn() {
-        // TODO: Dealer draws cards until 17 or higher
+        this.ui.drawCards(this.playerHand, this.dealerHand, false);
+
+        // Dealer must hit on 16 and stand on 17
+        while (this.calculateScore(this.dealerHand) < 17) {
+            this.dealerHand.push(this.deck.pop());
+            this.ui.drawCards(this.playerHand, this.dealerHand, false);
+        }
+
+        this.determineWinner();
+
     }
 
     double() {
