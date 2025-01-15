@@ -79,7 +79,29 @@ class BlackjackGame {
     }
 //     HELPER FUNCTIONS
     calculateScore(hand) {
-        
+        let score = 0;
+        let aces = 0;
+
+        for (let card of hand) {
+            if (card.value === 'A') {
+                aces++;
+            } else if (['K', 'Q', 'J'].includes(card.value)) {
+                score += 10;
+            } else {
+                score += parseInt(card.value);
+            }
+        }
+
+        // handle ace cards (ace = 1 if total score is more than 21)
+        for (let i = 0; i < aces; i++) {
+            if (score + 11 <= 21) {
+                score += 11;
+            } else {
+                score += 1;
+            }
+        }
+
+        return score;
     }
 
 }
