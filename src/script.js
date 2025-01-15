@@ -43,7 +43,12 @@ class BlackjackGame {
     }
 
     dealInitialCards() {
-        // TODO: Deal 2 cards to player and dealer (1 face up, 1 face down for dealer)
+        this.playerHand.push(this.deck.pop());
+        this.dealerHand.push(this.deck.pop());
+        this.playerHand.push(this.deck.pop());
+        this.dealerHand.push(this.deck.pop());
+
+        this.ui.drawCards(this.playerHand, this.dealerHand, true);
     }
 
     hit() {
