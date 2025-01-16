@@ -15,8 +15,8 @@ class BlackjackGame {
     }
 
     setupEventListeners() {
-        // TODO: Add event listeners for all buttons
-        // Betting buttons, deal button, hit/stand/double buttons
+        document.getElementById('hit-btn')?.addEventListener('click', () => this.hit());
+        document.getElementById('stand-btn')?.addEventListener('click', () => this.stand());
     }
 
     initializeGame() {
