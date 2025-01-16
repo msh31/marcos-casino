@@ -61,6 +61,7 @@ class BlackjackGame {
             this.dealInitialCards();
 
         }
+    }
 
     dealInitialCards() {
         this.playerHand.push(this.deck.pop());
