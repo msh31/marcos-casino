@@ -104,7 +104,8 @@ class BlackjackGame {
     }
 
     updateBalance(amount) {
-        // TODO: Update player's balance and UI
+        this.balance = amount;
+        this.ui.updateBalance(this.balance);
     }
 
     endGame(result) {
