@@ -46,8 +46,21 @@ class BlackjackGame {
     }
 
     placeBet(amount) {
-        // TODO: Handle betting logic
-    }
+        const betAmount = parseInt(this.ui.elements.betSlider.value);
+
+        if (betAmount <= this.balance && betAmount > 0) {
+            this.currentBet = betAmount;
+            this.balance -= betAmount;
+
+            // Change game state
+            this.gameState = 'playing';
+            this.ui.updateGameState('playing');
+
+            // Start the game
+            this.initializeGame();
+            this.dealInitialCards();
+
+        }
 
     dealInitialCards() {
         this.playerHand.push(this.deck.pop());
