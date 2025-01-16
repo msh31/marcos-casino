@@ -12,11 +12,10 @@ class BlackjackGame {
         this.balance = 500;
         this.gameState = 'betting'; // betting, playing, dealer-turn, game-over
 
-        document.addEventListener('DOMContentLoaded', () => {
-            this.ui = new UI();
-            this.ui.updateGameState('betting');
-            this.setupEventListeners();
-        });
+        this.ui = new UI();
+        this.ui.updateBalance(this.balance);
+        this.ui.updateGameState('betting');
+        this.setupEventListeners();
     }
 
     setupEventListeners() {
