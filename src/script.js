@@ -129,6 +129,7 @@ class UI {
         this.balance = document.getElementById('balance');
         this.bettingControls = document.getElementById('betting-controls');
         this.gameControls = document.getElementById('game-controls');
+
         this.resultMessage = document.getElementById('result-message');
 
         this.betSlider = document.getElementById('bet-slider');
@@ -219,7 +220,7 @@ class UI {
                 margin: 5px;`;
                 
                 const cardImage = document.createElement('img');
-                cardImage.src = 'img/cards/card_back.png';
+                cardImage.src = 'img/cards/card_empty.png';
                 cardImage.alt = 'Card back';
                 cardImage.style.width = '100%';
                 cardImage.style.height = '75%';
@@ -236,6 +237,6 @@ class UI {
 document.addEventListener('DOMContentLoaded', () => {
     const game = new BlackjackGame();
 
-    //game.initializeGame();
-    //game.dealInitialCards();
+    // game.initializeGame();
+    // game.dealInitialCards();
 });
