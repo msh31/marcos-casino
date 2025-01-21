@@ -110,6 +110,14 @@ class UI {
             }
         })
     }
+
+    clearTable() {
+        this.elements.dealerCards.innerHTML = '';
+        this.elements.playerCards.innerHTML = '';
+        this.elements.dealerScore.textContent = '0';
+        this.elements.playerScore.textContent = '0';
+        this.initializeBetSlider();
+    }
 }
 
 export {UI}
