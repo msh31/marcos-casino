@@ -19,10 +19,10 @@ class BlackjackGame {
     }
 
     setupEventListeners() {
-        document.getElementById('place-bet-btn')?.addEventListener('click', () => this.placeBet());
+        document.getElementById('place-bet-btn').addEventListener('click', () => this.placeBet());
 
-        document.getElementById('hit-btn')?.addEventListener('click', () => this.hit());
-        document.getElementById('stand-btn')?.addEventListener('click', () => this.stand());
+        document.getElementById('hit-btn').addEventListener('click', () => this.hit());
+        document.getElementById('stand-btn').addEventListener('click', () => this.stand());
     }
 
     initializeGame() {
@@ -56,7 +56,6 @@ class BlackjackGame {
 
             this.initializeGame();
             this.dealInitialCards();
-
         }
     }
 
@@ -72,6 +71,7 @@ class BlackjackGame {
 
     hit() {
         // TODO: Add card to player's hand and check for bust
+
     }
 
     stand() {
@@ -88,7 +88,6 @@ class BlackjackGame {
         }
 
         this.determineWinner();
-
     }
 
     double() {
@@ -110,6 +109,9 @@ class BlackjackGame {
 
     endGame(result) {
         // TODO: Handle end game state and show result message
+        console.log(result);
+
+        
     }
 
 //     HELPER FUNCTIONS
