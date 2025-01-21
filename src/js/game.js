@@ -67,6 +67,8 @@ class BlackjackGame {
 
         this.ui.drawCards(this.playerHand, this.dealerHand, true);
         this.ui.updateScores(this.calculateScore(this.playerHand), this.calculateScore([this.dealerHand[0]]));
+
+        this.checkForBlackjack();
     }
 
     hit() {
@@ -95,7 +97,11 @@ class BlackjackGame {
     }
 
     checkForBlackjack() {
-        // TODO: Check for natural blackjack
+        if(this.calculateScore(this.playerHand) === 21) {
+            this.endGame('blackjack');
+        } else if (this.calculateScore(this.dealerHand) === 21) {
+            this.endGame('dealer-blackjack');
+        }
     }
 
     determineWinner() {
