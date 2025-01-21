@@ -73,7 +73,6 @@ class BlackjackGame {
 
     hit() {
         // TODO: Add card to player's hand and check for bust
-
     }
 
     stand() {
@@ -115,9 +114,6 @@ class BlackjackGame {
 
     endGame(result) {
         // TODO: Handle end game state and show result message
-        console.log(result);
-
-        
     }
 
 //     HELPER FUNCTIONS
@@ -150,3 +146,7 @@ class BlackjackGame {
 }
 
 export {BlackjackGame};
+
+document.addEventListener('DOMContentLoaded', () => {
+    new BlackjackGame();
+});
