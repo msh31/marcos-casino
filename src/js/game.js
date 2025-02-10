@@ -121,7 +121,50 @@ class BlackjackGame {
     }
 
     endGame(result) {
-        // TODO: Handle end game state and show result message
+        const resultMessage = this.ui.elements.resultMessage;
+        resultMessage.classList.remove('hidden');
+
+        let message = '';
+        switch (result) {
+            case 'blackjack':
+                message = 'Blackjack! You win 1.5x your bet!';
+                const blackjackWinnings = this.currentBet + (this.currentBet * 1.5);
+                this.balance += blackjackWinnings;
+                break;
+            case 'player-wins':
+                message = 'You win!';
+                this.balance += (this.currentBet * 2);
+                break;
+            case 'dealer-bust':
+                message = 'Dealer busts! You win!';
+                this.balance += (this.currentBet * 2);
+                break;
+            case 'push':
+                message = 'Push! Bet returned.';
+                this.balance += this.currentBet;
+                break;
+            case 'player-bust':
+                message = 'Bust! You lose!';
+                break;
+            case 'dealer-wins':
+                message = 'Dealer wins!';
+                break;
+            case 'dealer-blackjack':
+                message = 'Dealer has Blackjack!';
+                break;
+        }
+
+        resultMessage.querySelector('span').textContent = message;
+
+        this.ui.updateBalance(this.balance);
+
+        setTimeout(() => {
+            resultMessage.classList.add('hidden');
+            this.gameState = 'betting';
+            this.ui.updateGameState('betting');
+            this.currentBet = 0;
+            this.ui.clearTable();
+        }, 3000);
     }
 
 //     HELPER FUNCTIONS
