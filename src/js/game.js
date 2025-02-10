@@ -84,7 +84,14 @@ class BlackjackGame {
     }
 
     stand() {
-        // TODO: Start dealer's turn
+        if (this.gameState !== 'playing') return;
+
+        this.gameState = 'dealer-turn';
+        this.ui.elements.hitBtn.disabled = true;
+        this.ui.elements.standBtn.disabled = true;
+        this.ui.elements.doubleBtn.disabled = true;
+
+        this.dealerTurn();
     }
 
     dealerTurn() {
