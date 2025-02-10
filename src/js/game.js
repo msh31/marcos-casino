@@ -119,7 +119,18 @@ class BlackjackGame {
     }
 
     determineWinner() {
-        // TODO: Compare hands and determine winner
+        const playerScore = this.calculateScore(this.playerHand);
+        const dealerScore = this.calculateScore(this.dealerHand);
+
+        if (dealerScore > 21) {
+            this.endGame('dealer-bust');
+        } else if (dealerScore > playerScore) {
+            this.endGame('dealer-wins');
+        } else if (dealerScore < playerScore) {
+            this.endGame('player-wins');
+        } else {
+            this.endGame('push');
+        }
     }
 
     updateBalance(amount) {
