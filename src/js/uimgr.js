@@ -13,6 +13,8 @@ class UI {
             bettingControls: document.getElementById('betting-controls'),
             gameControls: document.getElementById('game-controls'),
             resultMessage: document.getElementById('result-message'),
+            hitBtn: document.getElementById('hit-btn'),
+            standBtn: document.getElementById('stand-btn')
         }
 
         this.initializeBetSlider()
