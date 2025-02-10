@@ -21,11 +21,12 @@ class UI {
 
     updateGameState(state) {
         if(state === 'betting') {
-            this.elements.bettingControls.classList.remove('hidden')
-            this.elements.gameControls.classList.add('hidden')
+            this.elements.bettingControls.classList.remove('hidden');
+            this.elements.gameControls.classList.add('hidden');
+            this.elements.resultMessage.classList.add('hidden');
         } else {
-            this.elements.bettingControls.classList.add('hidden')
-            this.elements.gameControls.classList.remove('hidden')
+            this.elements.bettingControls.classList.add('hidden');
+            this.elements.gameControls.classList.remove('hidden');
         }
     }
 
