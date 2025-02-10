@@ -20,7 +20,6 @@ class BlackjackGame {
 
     setupEventListeners() {
         document.getElementById('place-bet-btn').addEventListener('click', () => this.placeBet());
-
         document.getElementById('hit-btn').addEventListener('click', () => this.hit());
         document.getElementById('stand-btn').addEventListener('click', () => this.stand());
     }
@@ -89,21 +88,29 @@ class BlackjackGame {
         this.gameState = 'dealer-turn';
         this.ui.elements.hitBtn.disabled = true;
         this.ui.elements.standBtn.disabled = true;
-        this.ui.elements.doubleBtn.disabled = true;
 
         this.dealerTurn();
     }
 
     dealerTurn() {
-        this.ui.drawCards(this.playerHand, this.dealerHand, false);
-
-        // Dealer must hit on 16 and stand on 17
-        while (this.calculateScore(this.dealerHand) < 17) {
-            this.dealerHand.push(this.deck.pop());
+        const dealerPlay = () => {
             this.ui.drawCards(this.playerHand, this.dealerHand, false);
-        }
 
-        this.determineWinner();
+            const currentScore = this.calculateScore(this.dealerHand);
+            this.ui.updateScores(
+                this.calculateScore(this.playerHand),
+                currentScore
+            );
+
+            if (currentScore < 17) {
+                this.dealerHand.push(this.deck.pop());
+                setTimeout(dealerPlay, 1000);
+            } else {
+                this.determineWinner();
+            }
+        };
+
+        dealerPlay();
     }
 
     double() {
