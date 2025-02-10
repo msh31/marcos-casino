@@ -119,6 +119,9 @@ class UI {
         this.elements.playerCards.innerHTML = '';
         this.elements.dealerScore.textContent = '0';
         this.elements.playerScore.textContent = '0';
+
+        this.elements.hitBtn.disabled = false;
+        this.elements.standBtn.disabled = false;
         this.initializeBetSlider();
     }
 }
