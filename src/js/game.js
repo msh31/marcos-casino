@@ -72,7 +72,15 @@ class BlackjackGame {
     }
 
     hit() {
-        // TODO: Add card to player's hand and check for bust
+        this.playerHand.push(this.deck.pop());
+        this.ui.drawCards(this.playerHand, this.dealerHand, true);
+
+        const playerScore = this.calculateScore(this.playerHand);
+        this.ui.updateScores(playerScore, this.calculateScore([this.dealerHand[0]]));
+
+        if (playerScore > 21) {
+            this.endGame('player-bust');
+        }
     }
 
     stand() {
