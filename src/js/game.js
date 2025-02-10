@@ -49,12 +49,13 @@ class BlackjackGame {
         if (betAmount <= this.balance && betAmount > 0) {
             this.currentBet = betAmount;
             this.balance -= betAmount;
-
             this.updateBalance(this.balance);
-            this.ui.updateGameState('playing');
 
             this.initializeGame();
             this.dealInitialCards();
+
+            this.gameState = 'playing';
+            this.ui.updateGameState('playing');
         }
     }
 
