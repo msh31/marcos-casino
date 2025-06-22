@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  casino:
+    image: nginx:alpine
+    container_name: marcos_casino
+    restart: unless-stopped
+    volumes:
+      - ./src:/usr/share/nginx/html:ro
+    networks:
+      - nginx-stack_web_network
+
+networks:
+  nginx-stack_web_network:
+    external: true
