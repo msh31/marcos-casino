@@ -21,9 +21,36 @@ The casino consists of the following games:
 *The rules of the games follow the traditional rules for each game.*
 
 <h3> Want to build it yourself? </h3>
-execute the following command in the base directory: 
 
-```npx tailwindcss -i ./src/style/style.css -o ./src/style/output.css```
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+2. **Development mode** (with live CSS rebuilding + local server):
+   ```bash
+   npm run dev
+   ```
+   Then open http://localhost:8000 in your browser
+
+3. **Production build** (build CSS + serve):
+   ```bash
+   npm start
+   ```
+
+4. **Build CSS only** (one-time build):
+   ```bash
+   npm run build-css-prod
+   ```
+
+## 🛠 Technical Details
+
+This project uses:
+- **HTML5** for structure
+- **Tailwind CSS** for styling with custom casino theme
+- **DaisyUI** for component library
+- **Vanilla JavaScript** for game logic
+- **Custom CSS** for enhanced styling and animations
 
 ## 🤝 Contributing
 Contributions are welcome! Feel free to:

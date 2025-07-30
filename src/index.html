@@ -14,18 +14,18 @@
     <script src="js/navbar.js" defer></script>
 </head>
 
-<body class="min-h-screen bg-gradient-to-b from-[#1A1A1A] to-[#2D1F1F]">
-<nav class="bg-bgaccent sticky top-0 z-50 backdrop-blur-sm bg-opacity-95">
+<body class="min-h-screen bg-gradient-to-b from-casino-black to-casino-gray">
+<nav class="bg-casino-gray/95 sticky top-0 z-50 backdrop-blur-sm">
     <div class="max-w-screen-xl flex items-center justify-center mx-auto px-4 py-3">
-        <a href="https://marco007.dev" class="text-white hover:text-perfectred transition-colors font-medium">← Back to Portfolio</a>
+        <a href="https://marco007.dev" class="text-white hover:text-casino-red transition-colors font-medium">← Back to Portfolio</a>
     </div>
 </nav>
 
     <!-- Header -->
 <div class="navbar px-4 py-6">
-    <h1 class="text-[#d4af37] text-5xl md:text-7xl font-casino text-glow">Marco's Casino</h1>
+    <h1 class="text-casino-gold text-5xl md:text-7xl font-casino text-glow">Marco's Casino</h1>
     <div class="ml-auto">
-        <div class="stats bg-black bg-opacity-50 text-[#d4af37]">
+        <div class="stats bg-casino-black/50 text-casino-gold">
             <div class="stat">
                 <div class="stat-title">Balance</div>
                 <div class="stat-value">€<span id="balance">500</span></div>
@@ -36,23 +36,23 @@
 
 <!-- Game Container -->
 <div class="container mx-auto p-4 max-w-4xl">
-    <div class="bg-[#1a472a] rounded-xl p-6">
+    <div class="bg-table-green rounded-xl p-6">
         <!-- Dealer Section -->
         <div class="space-y-4 mb-8">
             <div class="flex justify-between items-center">
-                <h2 class="text-[#d4af37] text-xl">Dealer's Hand</h2>
-                <span class="text-[#d4af37] text-xl">Total: <span id="dealer-score">0</span></span>
+                <h2 class="text-casino-gold text-xl">Dealer's Hand</h2>
+                <span class="text-casino-gold text-xl">Total: <span id="dealer-score">0</span></span>
             </div>
-            <div class="dealer-cards bg-[#2d5a3c] rounded-lg p-4 min-h-[174px] flex gap-4"></div>
+            <div class="dealer-cards bg-table-green-light rounded-lg p-4 min-h-[174px] flex gap-4"></div>
         </div>
 
         <!-- Player Section -->
         <div class="space-y-4 mb-8">
             <div class="flex justify-between items-center">
-                <h2 class="text-[#d4af37] text-xl">Your Hand</h2>
-                <span class="text-[#d4af37] text-xl">Total: <span id="player-score">0</span></span>
+                <h2 class="text-casino-gold text-xl">Your Hand</h2>
+                <span class="text-casino-gold text-xl">Total: <span id="player-score">0</span></span>
             </div>
-            <div class="player-cards bg-[#2d5a3c] rounded-lg p-4 min-h-[174px] flex gap-4"></div>
+            <div class="player-cards bg-table-green-light rounded-lg p-4 min-h-[174px] flex gap-4"></div>
         </div>
 
         <!-- Game Controls -->
@@ -60,7 +60,7 @@
             <!-- Betting Controls -->
             <div id="betting-controls" class="flex flex-col items-center gap-4">
                 <div class="w-full max-w-md space-y-2">
-                    <div class="flex justify-between text-[#d4af37]">
+                    <div class="flex justify-between text-casino-gold">
                         <span>€10</span>
                         <span id="current-bet">€500</span>
                         <span>€<span id="max-bet">1000</span></span>
@@ -71,21 +71,21 @@
                             max="1000"
                             value="500"
                             step="5"
-                            class="w-full h-2 bg-[#d4af37] rounded-lg appearance-none cursor-pointer"
+                            class="w-full h-2 bg-casino-gold rounded-lg appearance-none cursor-pointer"
                             id="bet-slider"
                     >
                 </div>
                 <button id="place-bet-btn"
-                        class="btn bg-[#d4af37] hover:bg-[#c4a030] text-black border-none min-w-[120px]">
+                        class="btn bg-casino-gold hover:bg-casino-gold-hover text-black border-none min-w-[120px]">
                     Place Bet
                 </button>
             </div>
 
             <!-- Game Action Controls -->
             <div id="game-controls" class="flex justify-center gap-4 hidden">
-                <button class="btn bg-[#d4af37] hover:bg-[#c4a030] text-black border-none" id="hit-btn">Hit</button>
-                <button class="btn bg-[#d4af37] hover:bg-[#c4a030] text-black border-none" id="stand-btn">Stand</button>
-<!--                <button class="btn bg-[#d4af37] hover:bg-[#c4a030] text-black border-none" id="double-btn">Double</button>-->
+                <button class="btn bg-casino-gold hover:bg-casino-gold-hover text-black border-none" id="hit-btn">Hit</button>
+                <button class="btn bg-casino-gold hover:bg-casino-gold-hover text-black border-none" id="stand-btn">Stand</button>
+<!--                <button class="btn bg-casino-gold hover:bg-casino-gold-hover text-black border-none" id="double-btn">Double</button>-->
             </div>
 
             <div id="result-message" class="alert alert-success hidden text-center">
