@@ -68,7 +68,7 @@ class BlackjackGame {
         this.ui.drawCards(this.playerHand, this.dealerHand, true);
         this.ui.updateScores(this.calculateScore(this.playerHand), this.calculateScore([this.dealerHand[0]]));
 
-        this.checkForBlackjack();
+        this.checkForBlackjack();   
     }
 
     hit() {
@@ -79,12 +79,19 @@ class BlackjackGame {
         this.ui.updateScores(playerScore, this.calculateScore([this.dealerHand[0]]));
 
         if (playerScore > 21) {
+            this.ui.elements.hitBtn.disabled = true;
+            this.ui.elements.standBtn.disabled = true;
             this.endGame('player-bust');
         }
     }
 
     stand() {
         if (this.gameState !== 'playing') return;
+        
+        const playerScore = this.calculateScore(this.playerHand);
+        if (playerScore > 21) {
+            return;
+        }
 
         this.gameState = 'dealer-turn';
         this.ui.elements.hitBtn.disabled = true;
